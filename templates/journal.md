@@ -2,49 +2,59 @@
 
 ## January 22
 
-We learned about the GHCi tool today. From the command prompt of shell, running the command `ghci` launches a REPL (Read-Evaluate-Print-Loop) which provides an interactive environment in which we can experiment and test Haskell code. The GHCi environment also provides additional help functionality, such as asking for the _type_ of a function or value using `:t`.
-
-One thing about GHCi that we should remember is that it always prints the resulting value of any expression we type in, even if that code doesn't specifically say to print it. Professor says that this is different than when the code itself actually instructs the machine to print to the console. For example, if I type `"Hello World"` at the GHCi prompt, then the REPL prints `"Hello World"`. However, if I enter `putStrLn "Hello World"`, then the output looks like `Hello World` with no quotation marks.
-
-Etc...
-
-### New Reserved Operators
-
-- `(::)` used when specifying the type of a name or symbol
-- `(=)` a binding operator, used to define a name
-- `(->)` arrow operator, used when specifying function types
-
-### New Operators
-
-- `(+)` addition operator, adds two numbers in the expected way
-- `(++)` append operator, joins two strings together
-- `(.)` function composition, first function takes as input the output of the second function
-
-### New Named Functions
-
-- `mod` modulus function
-- `map` applies a given function to each element of a list to produce a new list, may be used instead of a loop when that loop would transform a list
-- `interact` takes a function that transforms a string into a new string, gets keyboard input and passes it to the specified function then prints the result to the console
-- `putStrLn` prints output to the console, similar to Java's System.out.println
-
 ## Exploration
 
-On my own outside of class, I installed the Haskell Platform on my personal laptop and launched GHCi to play around a bit, tryin out some simple expressions.
+I'm trying out some practice Kattis problems, just the easy ones, to help me get around the syntax of Haskell. I can read Haskell okay... I've done some programming in it for Alan's Theory of Programming Languages class, and it was by far the language that took me the most to program the Caesar Cipher, however it was the most interesting and what I felt like the most rewarding.
 
-- `4 + 2` produced `6`
-- `2 - 1` produced `1`
-- `2 * 4` produced `8`
-
-I encountered my first error when I tried joining a number and a string as we might do in languages like Java and JavaScript. When I entered the expression `200 + "px"` (something I might use in JavaScript on the Web), I received the following message:
+I'm attempting to do the Pizza Crust problem and I'm running into some type errors:
 
 ```
-<interactive>:4:5:
-    Couldn't match expected type `Integer' with actual type `[Char]'
-    In the second argument of `(+)', namely `"Hello"'
-    In the expression: x + "Hello"
-    In an equation for `it': it = x + "Hello"
+pizza_crust.hs:14:14: error:
+    • Couldn't match expected type ‘Double’ with actual type ‘Integer’
+    • In the expression: pi * (r ^ 2)
+      In an equation for ‘calcArea’: calcArea r = pi * (r ^ 2)
 ```
 
-I'm not entirely sure what this is telling me yet, but it seems like the data types matter when adding things with `+`.
+Here's the code:
 
-Etc...
+```Haskell
+calcArea :: Integer -> Double
+calcArea r = pi * (r ^ 2)
+```
+
+I don't understand why Haskell thinks that this function will return an integer. I've done `:t` on `pi` and it's returned `Floating`... which I assume could be automatically considered a `Double`, however apparently not. I'm used to the type hierarchy of something like Java which automatically can cast something `Floating` to `Double`... I don't understand why Haskell is getting a type mismatch.
+
+I've tried in the GHC to provide examples of expressions of the `calcArea` body, and all has checked out. I can successfully use `pi` in combination with `Integer`s to create a `Double` value, but for some reason the compilation process reads the `calcArea` function and its type definition differently than in GHC.
+
+If I change the definition of `calcArea` to `Integer -> Integer` the error moves on to a different function... What the heck man??
+
+I changed the definition to `Integer -> Float` and still nothing... maybe it has something to do with the `^` operator? Or the `*` operator?
+
+Nope, in GHC:
+
+```haskell
+calcArea r = pi * r ^ 2
+:t calcArea
+calcArea :: Floating a => a -> a
+
+calcArea :: Integer -> Double
+
+<interactive>:32:1: error:
+    • Couldn't match type ‘Integer’ with ‘Double’
+      Expected type: Integer -> Double
+        Actual type: Double -> Double
+    • In the expression: calcArea :: Integer -> Double
+      In an equation for ‘it’: it = calcArea :: Integer -> Double
+```
+
+So the inferred type of calcArea is important: `Floating a => a -> a`, meaning that whatever type `a` is defined in the first argument, the output of the function must be the same type. So because I've defined `calcArea` as `Integer -> Double` Haskell reads the input type, `Integer`, and expects the output to also be an `Integer`. Why is is happening, I still don't understand. I have a feeling `pi` is some fancy function-like "value" that messes up the types, because it is type `Floating a`. I don't know how to change the type expected, because I should be able to polymorphically get a function `Floating a => Integer -> a` where `a` is a `Double` (that makes sense right? A `Double` is `Floating`? Let's look it up.)
+
+I thought Haskell's type system would be smart enough to just convert automatically, but I guess not. I needed `fromIntegral` to change the result of `r ^ 2` to a more general type, `Num`, which `pi` could be multiplied with to produce a `Double`... I guess?
+
+## Summary
+
+I've learned a lot about numeric types, namely the subtle differences between `Num` and `Floating` and `Double` and `Integer` and all those.
+
+I've also learned somewhat about pattern matching with arrays... although I also learned that you have to be exhaustive for all possible sizes of arrays, even if those sizes are impossible given the problem definition.
+
+I learned that the `!!` operator is unsafe and throws runtime exceptions, which is pretty bad for Haskell (which is supposed to catch most errors before the program is compiled even)
