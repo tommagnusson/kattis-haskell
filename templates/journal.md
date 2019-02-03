@@ -55,6 +55,6 @@ I thought Haskell's type system would be smart enough to just convert automatica
 
 I've learned a lot about numeric types, namely the subtle differences between `Num` and `Floating` and `Double` and `Integer` and all those.
 
-I've also learned somewhat about pattern matching with arrays... although I also learned that you have to be exhaustive for all possible sizes of arrays, even if those sizes are impossible given the problem definition.
+I've also learned somewhat about pattern matching with arrays... although I also learned that you have to be exhaustive for all possible sizes of arrays, even if those sizes are impossible given the problem definition. This forced me to make awkward cases like `f [] = error "impossible"` and the like. I don't really know how to cleanly destructure the first two elements in an array into a `Pair` or `Tuple`.
 
-I learned that the `!!` operator is unsafe and throws runtime exceptions, which is pretty bad for Haskell (which is supposed to catch most errors before the program is compiled even)
+I learned that the `!!` operator is unsafe and throws runtime exceptions, which is pretty bad for Haskell (which is supposed to catch most errors before the program is compiled even).
