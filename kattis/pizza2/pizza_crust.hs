@@ -14,10 +14,9 @@ calcArea r = pi * fromIntegral (r ^ 2)
 -- a(r) - a(c) = diff
 -- diff / a(r)
 doTheWork :: [Integer] -> Double
-doTheWork [] = error "err"
-doTheWork [a] = error "err"
-doTheWork [r, c] = calcArea(r-c) / calcArea(r) * 100
-doTheWord (x:xs) = error "err"
+doTheWork (x:xs) = calcArea(r-c) / calcArea(r) * 100
+  where r = x
+        c = head xs
 
 
 showResult :: Double -> String
