@@ -1,4 +1,4 @@
-# Week Two
+# Entry 02
 
 ## Feb 4
 

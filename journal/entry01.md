@@ -1,4 +1,4 @@
-# Week Two
+# Entry 01
 
 ## Jan 22
 

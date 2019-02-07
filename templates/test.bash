@@ -1,0 +1,1 @@
+runghc file.hs < n.in | diff - n.ans
