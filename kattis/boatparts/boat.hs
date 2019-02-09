@@ -15,7 +15,7 @@ solve (i, ps) | i > setL  = Nothing
               | i == setL = if ps == (S.toList set) then Just i else Nothing
               | otherwise = if elem [] highestIndicies then Nothing else Just $ maximum highestIndicies
     where
-      set = S.fromList ps 
+      set = S.fromList ps
       setL = fromIntegral S.size set
       highestIndex :: [String] -> Integer
       highestIndex s = last $ elemIndices s ps
