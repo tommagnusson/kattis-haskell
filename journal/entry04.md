@@ -56,6 +56,12 @@ remove e (x:xs) | x == e    = xs | otherwise = (x:(remove e xs))
 
 Devise a spell that will replace a list element at a specific index with some new value. Of course, you cannot destroy the original list, so really you must create a new list that appears just as the original except in the specified position.
 
+```haskell
+replace :: a -> [a] -> Int -> [a]
+replace _ [] _ = []
+replace y (x:xs) i | i == 0 = (y:xs) | otherwise = (x:(replace y xs (i-1)))
+```
+
 ### Median value
 
 Devise a spell to compute the median value of a list of numbers. Be sure to make the type constraint as general as possible while still correctly implementing the notion of median.
