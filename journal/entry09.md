@@ -27,3 +27,5 @@ You know what I really hate? All this manual casting. I know I complained about 
 Whatever, I'll just change everything to `Int` because `length` returns `Int` and I'll just have to deal..
 
 Note: `max` !== `maximum`
+
+This journal is really helpful as a sketchpad for how to think about and decompose problems. Numbering the steps I'm going to take, and then refining those steps as I go helps to quickly and clearly understand how to translate a solution into Haskell. My `where` clause for this soluction almost directly mirrored my steps. I like Haskell's declarative nature, and I enjoy how it mirrors my sketched thought process. But number types man, still gets me.
