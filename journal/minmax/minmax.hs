@@ -1,5 +1,3 @@
-type Max = Int
-type Min = Int
 
 -- T(n) = number of comparisons in an array of size n
 -- T(n) = 2 + 2T(n/2)
@@ -18,15 +16,14 @@ type Min = Int
 -- T(n) = (2^k)T(2) + 2^k + 2^k-1 + ... + 2
 -- .... T(n) = 1.5n - 2
 
-minmax :: [Int] -> (Min, Max)
+minmax :: Ord a => [a] -> (a, a)
 minmax [a] = (a, a)
-minmax [a, b] | a < b = (a, b) -- 1
-              | otherwise = (b, a)
-minmax xs = (min, max)
+minmax [a, b] = (min a b, max a b)
+minmax xs = (mini, maxi)
   where
     half = length xs `div` 2
     (left, right) = splitAt half xs
     (minl, maxl) = minmax left
     (minr, maxr) = minmax right
-    min = if minl < minr then minl else minr -- 1
-    max = if maxl > maxr then maxl else maxr -- 1
+    mini = min minl minr -- 1
+    maxi = max maxl maxr -- 1
