@@ -15,6 +15,8 @@ type Min = Int
 -- T(n) = 2^1 + ... + 2^k + (2^k)T(n/(2^k))
 -- because T(n/2^k) = T(2); n/2^k = 2
 -- let k+1 = log2n
+-- T(n) = (2^k)T(2) + 2^k + 2^k-1 + ... + 2
+-- .... T(n) = 1.5n - 2
 
 minmax :: [Int] -> (Min, Max)
 minmax [a] = (a, a)
