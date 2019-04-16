@@ -1,4 +1,5 @@
 -- merge two-pointer algorithm
+module Merge where
 
 merge :: Ord a => [a] -> [a] -> [a] -> [a]
 merge [] [] zs = zs
