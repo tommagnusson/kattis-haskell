@@ -1,0 +1,11 @@
+# Entry 22
+
+## May 11
+
+# Category Theory
+
+I watched a [number](https://youtu.be/ho7oagHeqNc) of [videos](https://youtu.be/V10hzjgoklA) [introducing category theory](https://youtu.be/jBkO1eerU8A) and I have a few musings and questions about it.
+
+I don't really understand the relationship between the math and the programming. It seems my intuition about Functors, Applicative Functors, Monads, and Monoids don't easily map over to the way in which mathematics seems to represent those kinds of concepts. All the confusing names like "morphism" and "object" seem to add to the ways in which mathematics (to me) seems to obscure the topic more than make it accessible for people coming from a computer science background.
+
+Also, it seems the presentators of two of the videos I watched had two different but equally distracting quirks when presenting category theory. Eugenia Cheng presented a nice visual lecture about category theory at a functional programming conference, which started out nice, but quickly diverted into politically charged examples that literally categorized people by identity such as race and gender, and made claims about those races and genders that are contentious in reality. She might be right, but it seemed to take away enormously from the underlying concepts she was trying to present. I found myself focusing on her liberal leanings rather than on the category theory. The other presenter, Philip Wadler, seemed to have the opposite problem. He presented material very quickly and had an air of arrogance that screamed "I'm an academic and I'm smarter than you." He asked the crowd something to the effect of "Who is stupid enough not to know these things? It's okay, when people start out learning this stuff they're stupid and it's okay to admit you're stupid. I know this stuff front and back so it's difficult for me to know when stupid people won't understand something and I should slow down." It seems, from this very small sample size, that this topic is for people with agendas, be it proving that they're smarter than you or more woke than you, which is quite disheartening. I really want to research the topic more by listening to people present about it, but it's either 1) a speaker has some quirk or 2) you need to have a deep mathematics background to even get in or 3) both 1) and 2).
