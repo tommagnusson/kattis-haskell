@@ -1,4 +1,4 @@
-# Entry 17
+# Entry 19
 
 ## May 1
 
@@ -13,3 +13,5 @@ I don't think that the test-by-class-consensus was very effective, even though s
 I realized my misunderstanding of the Stack was fundamentally to do with the base case, as well as how record syntax actually creates a data constructor. I did not understand the fact that the function names within the curly braces also stood as parameters for the data constructor. I didn't realize that the data constructor itself could not be constrained (that had to be done in the type constructor). Overall, I learned a lot about the actual way to use record syntax, which had not really been needed for Kattis before.
 
 The other tricky question was the multiple implementations of `any` using the various folds. I know `fold` is an important set of functions within Haskell, and understanding its differences can help navigate implementation and performance issues alike, however it was really tricky and seemed a bit tedious to figure out. The `flip` for the `foldl` implementation was a bit frustrating, becuase I expected it to be more complicated than just literally flipping the arguments. The question mentioned that one might need to use `flip`, however based on the vague hints on other questions, surely a `flip` would not be all? Nay, in this instance, the problem hint was literally the answer, which was a bit infuriating, but alas, I eventually got it.
+
+See my `test` folder for exam 2 explorations.
