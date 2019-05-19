@@ -1,0 +1,11 @@
+# Entry 23
+
+## May 18
+
+# Meta Analysis of Kattis Problem Solving
+
+I think I did a good job of solving the Kattis Problems early. I quickly developed a method of solving the problems that helped make me the most efficient I could be. I had the nice template provided (with shortened names... consider adopting it! It looks more Haskel-like!) as well as a bash script that would auto-test the `.in` and `.out` files that were in the current directory against the `.hs` file. I could just download the Kattis solutions and run them once I thought my answer was complete, and then I would automatically get a sort of poor-man's automated testing suite that would tell me if any of the ouput was missing.
+
+I also think that starting from the easiest and working my way up was definitely the way to go. I started on a few "easy" questions and I quickly became frustrated that I couldn't even solve "easy" questions in a reasonable amount of time (or at all for some of them). I realized that solving the "trivial" ones would quickly boost my score and ramp up my confidence so I could spend longer on the more and more difficult problems.
+
+Overall, I learned a lot from solving the Kattis problems, and hope that I continue some of them in the future. I think that the practical side of Haskell shines when the problem is well-defined and mostly academic-focused, just like the Kattis problems. What I wish we had was smaller, more concrete mini-projects that helped us use more of the esoteric features of the language in order to demonstrate how useful they can be. Something like making a `hello world` web server that would serve back a simple html page, or building a simple spam filter using large email datasets (like Facebook actually does) would be awesome! I know some of us did not get time to do the project, which is a bummer, but breaking it down into mini projects might be fun and motivating to people who are less interested in the theoretical nature of Haskell (proofs, lazy evaluation, etc).
