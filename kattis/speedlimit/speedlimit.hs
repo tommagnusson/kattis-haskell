@@ -1,9 +1,7 @@
 parse :: String -> [[(Int, Int)]]
 parse s = undefined
-    rs = lines s
-    nLogs = filter ((>) 3 . length)) rs
 
-parse' :: String -> [[Int]] -> String
+-- break after single element
 
 solve :: a -> b
 solve = undefined
