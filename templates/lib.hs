@@ -22,3 +22,13 @@ cases' f ss acc
         n = read $ head ss
         g = map f $ take n $ tail ss
         rest = drop n $ tail ss
+
+-- example of recursive string replacement
+solve :: String -> String
+solve ('a':'p':'a':xs) = 'a': solve xs
+solve ('e':'p':'e':xs) = 'e': solve xs
+solve ('i':'p':'i':xs) = 'i': solve xs
+solve ('o':'p':'o':xs) = 'o': solve xs
+solve ('u':'p':'u':xs) = 'u': solve xs
+solve (x:xs) = x: solve xs
+solve "" = ""
