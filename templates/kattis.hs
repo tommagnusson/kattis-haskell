@@ -7,5 +7,8 @@ solve = undefined
 display :: a -> String
 display = undefined
 
+run :: String -> String
+run = display . solve . parse
+
 main :: IO ()
-main = interact (display . solve . parse)
+main = interact run
