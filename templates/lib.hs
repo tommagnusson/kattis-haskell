@@ -23,6 +23,16 @@ cases' f ss acc
         g = map f $ take n $ tail ss
         rest = drop n $ tail ss
 
+-- Takes an element by which to break up the list and splits the list into
+-- sublists, which would normally end with that element
+-- NOTE: the last element in the list must match the element passed in
+casesByEnding :: Eq a => a -> [a] -> [[a]]
+casesByEnding s ss 
+    | null x = []
+    | otherwise = x: casesByEnding s (tail rest)
+        where
+           (x, rest) = break (== s) ss
+
 -- example of recursive string replacement
 solve :: String -> String
 solve ('a':'p':'a':xs) = 'a': solve xs
